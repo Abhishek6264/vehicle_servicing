@@ -1,0 +1,154 @@
+<ion-view view-title="Appointments List" cache-view="false">
+<ion-nav-buttons side="right">
+    <button class="button button-icon button-clear ion-navicon" ng-click="openMenu()"></button>
+  </ion-nav-buttons>  
+  <ion-content overflow-scroll="false">
+    
+    
+        <form ng-submit="TotalAptNum()">  
+        <div class="row card" style="margin-left: 0px; margin-top: 0">      
+             <label>
+              <input type="date" min="2017-01-01" max="2018-12-31"  name="appDate"  id="appDate"  ng-model="abc" required=""  >
+             </label>
+              <input type="text" placeholder="Totol Appointment"  id="numberAppt" ng-model="data.numberAppt" required="" style="width: 30%;text-align: center;">
+         
+              <input class="button button-small button-calm" type="submit" name="submit" value="OK" style="margin-left: 35px;width: 20%">
+          
+          
+         </div>
+         </form>
+         <!-- <style type="text/css">
+         {'background-color' : '#11c1f3','color' : 'white'}
+         </style> -->
+  <div class="button-bar" style="border-bottom: 1px solid #e0e0e0;margin-top: -18px;" ng-init="style={'background-color' : '#11c1f3','color' : 'white'}">
+    <input class="button  button-stable" ng-click="bookload();style1=style; style2=null; style3=null" style="border-right: 1px solid #e0e0e0;border-radius: 0px;" id="style1" ng-style="style1">Booked
+    <span class="button  button-stable"  ng-click="readyload();style2=style; style1=null; style3=null"" style="border-right: 1px solid #e0e0e0;border-radius: 0px" ng-style="style2">Accepted</span>
+    <span class="button  button-stable" ng-click="deliveredload();style3=style; style1=null; style2=null"" style="border-right: 1px solid #e0e0e0;border-radius: 0px" ng-style="style3">Ready</span>
+  </div>
+<!-- ng-show="bookedVar(book)" -->
+<div class="list">
+  <div  ng-repeat="book in bookedAppointment track by $index"  ng-click="toggleGroup(book)" ng-class="{active: isGroupShown(book)}" style="padding-left: 0;padding-right:0;">
+    <span class="item item-divider" style=""><i class="icon ion-plus calm" ></i> <b> {{book.app_day_hr}}</b></span>  
+
+      <div class="item item-input item-stacked-label" ng-show="isGroupShown(book)"  style="width: 100%; background-color: white;padding-left: 15px;padding-top:4px;height: 50px;">
+                           
+         <span>{{book.Customername}} : <b  style="text-transform: capitalize;">{{book.Customermobno}}</b></span><br>                           
+         <span> Vehicle No: <b style="text-transform: uppercase;">{{book.Vehicle}}</b></span> 
+                
+          <button  class="button button-small button-calm list card"  ng-click="accept(book.Apptid,'ACCEPT',$index)" ng-if="book.Apptstage=='BOOKED'" style="float: right;width: 18%;font-size: 13px;margin-top: -18px;margin-right: 5px;line-height: 1">Accept</button>
+          <button  class="button button-small button-calm list card"  ng-click="accept(book.Apptid,'READY',$index)" ng-if="book.Apptstage=='ACCEPT'" style="float: right;width: 18%;font-size: 13px;margin-top: -18px;margin-right: 5px;line-height: 1">Ready</button>
+          <button  class="button button-small button-calm list card"  ng-click="accept(book.Apptid,'DELIVERED',$index)" ng-if="book.Apptstage=='READY'" style="float: right;width: 18%;font-size: 13px;margin-top: -18px;margin-right: 5px;line-height: 1">Deliver
+          </button>
+      </div>
+  </div>
+</div>
+
+
+<!-- <div class="button-bar" style="border-bottom: 2px solid #e0e0e0;margin-top: -18px;">
+    <span class="button  button-stable" ng-click="bookload()" ng-model="selected" value="app_day_hr" style="border-right: 1px solid #e0e0e0;">Booked</span>
+    <span class="button  button-stable"  ng-click="readyload()" ng-model="selected" value="app_day_hr" style="border-right: 1px solid #e0e0e0">Accepted</span>
+    <span class="button  button-stable" ng-click="deliveredload()" ng-model="selected" value="app_day_hr" style="border-right: 1px solid #e0e0e0">Ready</span>
+  </div>
+<div class="list">
+  <div  ng-repeat="(key,value) in bookedAppointment track by $index | groupBy:selected"  ng-click="toggleGroup(book)" ng-class="{active: isGroupShown(book)}" style="padding-left: 0;padding-right:0;">
+    <span class="item item-divider" style=""><i class="icon ion-plus calm" ></i> <b> {{key}}</b></span>  
+
+      <div class="item item-input item-stacked-label" ng-repeat="book in value" ng-show="isGroupShown(book)" style="width: 100%; background-color: white;padding-left: 15px;padding-top:4px;height: 50px;">
+                           
+         <span>{{book.Customername}} : <b  style="text-transform: capitalize;">{{book.Customermobno}}</b></span><br>                           
+         <span> Vehicle No: <b style="text-transform: uppercase;">{{book.Vehicle}}</b></span> 
+                
+          <button  class="button button-small button-calm list card"  ng-click="accept(book.Apptid,'ACCEPT',$index)" ng-if="book.Apptstage=='BOOKED'" style="float: right;width: 18%;font-size: 13px;margin-top: -18px;margin-right: 5px;line-height: 1">Accept</button>
+          <button  class="button button-small button-calm list card"  ng-click="accept(book.Apptid,'READY',$index)" ng-if="book.Apptstage=='ACCEPT'" style="float: right;width: 18%;font-size: 13px;margin-top: -18px;margin-right: 5px;line-height: 1">Ready</button>
+          <button  class="button button-small button-calm list card"  ng-click="accept(book.Apptid,'DELIVERED',$index)" ng-if="book.Apptstage=='READY'" style="float: right;width: 18%;font-size: 13px;margin-top: -18px;margin-right: 5px;line-height: 1">Deliver
+          </button>
+      </div>
+  </div>
+</div>
+ -->
+
+
+
+
+
+
+ <!-- <button class="button button-small button-calm list card"  ng-click="sellItemToCustomer(custom)"><span style="font-size: 12px" ng-if="book.Apptstage=='BOOKED'">Accept</span> 
+ </button> -->
+ <!-- <button class="button button-small button-calm list card"  ng-click="sellItemToCustomer(custom)"><span style="font-size: 12px" ng-if="book.Apptstage=='ACCEPT'">Ready</span> 
+ </button>
+ <button class="button button-small button-calm list card"  ng-click="sellItemToCustomer(custom)"><span style="font-size: 12px" ng-if="book.Apptstage=='READY'">Deliver</span> 
+ </button> -->
+
+     
+       <!-- <div class="item item-divider" style="text-align: center; margin-top: -40px"> -->
+        <!-- <input type="radio" ng-model="selected" value="" /> All Appointments  --> 
+        <!-- <input type="radio" name="appointment" id="radio1" ng-model="selected" value="app_day_hr" style="margin-left: 8px" /> <label for="radio1"> All Appointments</label>  
+         <input type="radio" name="appointment"  id="radio2" ng-model="selected" value="appointment_stage" style="margin-left: 120px" /> <label for="radio2">Satus</label> 
+      </div> -->
+     
+    <!-- <div ng-repeat="(key, value) in appointDisplay | groupBy:selected"  ng-click="toggle()"> -->
+     <!--<div ng-repeat="apt in appointDisplay | groupBy:apt.appointment_stage" ng-click="toggle()">-->
+    
+          <!-- <h2 ng-if="key != 'undefined'" ng-show="selected">Group name: {{ key }} ({{ value.length }})</h2> -->
+           <!--  <div class="item item-divider"  ng-show="!selected" >Totol Appointments<span style="float: right;">{{ appointDisplay.length }}</span>
+            </div> -->
+            
+        <!-- <p ng-if="value.appointment_stage!='BOOKED'">ijiji</p>  -->
+     <!-- <p> test</p> -->
+            <!-- <div class="item item-divider" ng-show="selected"  >{{key}} <span style="float: right;color: darkred; font-weight: bold;">{{ value.length }}</span>
+            </div> -->
+            
+            <!-- </div> -->
+
+            <!-- <div ng-if="value.appointment_stage != 'BOOKED' && (key =='ACCEPT' || key =='READY') ">
+  
+            <div class="item item-divider" ng-show="selected" >{{key}} <span style="float: right;">{{ value.length }}</span>
+            </div>
+            </div>  -->
+            <!-- {{value.appointment_stage}} -->
+         <!-- |filter {player.appointment_stage:appointment_stage.value} -->
+                     
+                <!-- <div class="item item-button-right item-text-wrap" ng-repeat="player in value track by $index"  ng-show="toggleVar" style="border-bottom: 2px solid #e0e0e0; border-top: 4px solid #f0f0f0;padding-top: 0;padding-bottom: 0" ng-if="player.appointment_stage!='RATE US'" > -->
+                  
+                    <!-- <div ng-show="player.cust_mobno == '987654'"> -->
+                 <!--   <span><b  style="text-transform: capitalize;">{{ player.cust_name }}</b> : {{ player.cust_mobno}}</span><br>
+                           
+                   <p style="text-transform: uppercase;"> Vehicle No: {{player.vehicle_no}}</p> 
+                    <input type="text" name="appointmentId" ng-init="" ng-model="appointmentId" ng-value="player.appointment_id" style="display: none;"> -->
+
+                    <!-- <button type="submit" class="button button-small button-calm list card" ng-click="accept(player.appointment_id,'ACCEPT',$index)" style="margin-right: -10px;width: 18%;font-size: 15px;margin-top: -4px;line-height: 1" ng-if="player.appointment_stage=='BOOKED'">Accept</button> -->
+
+                     <!-- <button type="submit" class="button button-small button-balanced list card" ng-click="accept(player.appointment_id,'READY',$index)" style="margin-right: -10px;width: 18%;font-size: 15px;margin-top: -4px;line-height: 1" ng-if="player.appointment_stage=='ACCEPT'">Ready</button> -->
+
+                   <!-- <button type="submit" class="button button-small button-assertive list card" ng-click="accept(player.appointment_id,'DELIVERED',$index)" style="margin-right: -10px;width: 18%;font-size: 15px;margin-top: -4px;line-height: 1" ng-if="player.appointment_stage=='READY'">Deliver</button> -->
+
+                  <!--  <button type="submit" class="button button-small button-calm list card" ng-click="accept(player.appointment_id,'RATE US',$index)" style="margin-right: -10px;width: 18%;font-size: 13px;margin-top: -4px;line-height: 1" ng-if="player.appointment_stage=='DELIVERED'">Rate Us</button> -->
+            <!--           
+                 </div>
+    </div> -->
+    <!-- <div class="bar bar-footer bar-calm" >
+        <div class="title"><h6>Copy Right&copy; OnTouch <span id="demo"></span> | All Rights Reserved&reg;</h6></div>
+      </div> -->
+  
+  </ion-content>
+  <div class="bar bar-footer" style="margin-bottom: 0px;padding: 0">
+    <div class="button-bar" >
+  
+      <a class="button button-calm" href="#/usersratinglist" style="border-right: 0px solid #e0e0e0;font-size: 18px;padding-top: 5px;border-radius: 0"><i class="ion-star assertive" style="margin-right: 4px;margin-left:  -6px;font-size: 23px"></i>Rating</a>
+      <a class="button button-calm" href="#/generalrating" style="border-left: 0px solid #e0e0e0;font-size: 18px;padding-top: 5px;border-radius: 0"><i class="ion-compose assertive" style="margin-right: 4px;margin-left: -12px;font-size: 23px"></i>Feedback </a>
+      <a class="button button-calm" href="#/sadangry" style="border-left: 0px solid #e0e0e0;font-size: 18px;padding-top: 5px;border-radius: 0"><i class="ion-sad assertive" style="margin-right: 4px;margin-left: -10px;font-size: 23px"></i>Unhappy</a>
+  
+    </div>
+</div>
+<!-- <ion-tabs class="tabs-icon-top tab-background-color-stable tabs-color-active-calm">
+  <ion-tab title="Users Rating" icon-off="ion-ios-home-outline" icon-on="ion-ios-home" href="#/usersratinglist" >
+    <ion-nav-view></ion-nav-view>
+  </ion-tab>
+  <ion-tab title="General Rating" icon-off="ion-ios-star-outline" icon-on="ion-ios-star" href="#/generalrating" >
+    <ion-nav-view></ion-nav-view>
+  </ion-tab> -->
+  
+
+</ion-tabs>
+
+</ion-view>

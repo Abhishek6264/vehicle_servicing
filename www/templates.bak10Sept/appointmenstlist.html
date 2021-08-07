@@ -1,0 +1,35 @@
+<ion-view view-title="Appointments List" >
+<ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" ng-click="openMenu()"></button>
+  </ion-nav-buttons>  
+  <ion-content>
+
+
+    <b>Filter </b>
+	    <input type="radio" ng-model="selected" value="" />All Appointments  
+	    <input type="radio" ng-model="selected" value="app_day_hr" />Time	   
+    <br>
+    <div  ng-repeat="(key, value) in appointDisplay | groupBy:selected" ng-click="toggleGroup(value)" >
+		 
+		      <!--<h2 ng-if="key != 'undefined'" ng-show="selected">Group name: {{ key }} ({{ value.length }})</h2> -->
+		        <div class="item item-divider"  ng-show="!selected" >Totol Appointments<span style="float: right;">{{ appointDisplay.length }}</span>
+		        </div>
+
+		        <div class="item item-divider" ng-class="{active: isGroupShown(value)}" ng-show="selected">{{key }} <span style="float: right;">{{ value.length }}</span>
+		        </div>
+
+                 
+			          <div class="item item-button-right item-text-wrap" ng-repeat="player in value" ng-show="isGroupShown(value)" style="border-bottom: 2px solid gray;border-bottom: 2px solid #e0e0e0; border-top: 4px solid #f0f0f0">
+				          
+				       
+				          <input  type="submit" name="submit" " class="button button-small button-calm list card"  style="float: right;" value="Accept">
+				           <span><b>{{ player.cust_name }}</b> : {{ player.cust_mobno}}</span><br>
+
+				           <span ng-model="data.vehicle">Vehivle No: {{player.vehicle_no}}</span> 
+				          
+		             </div>
+
+    </div>
+   
+  </ion-content>
+</ion-view>

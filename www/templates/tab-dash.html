@@ -1,0 +1,72 @@
+<ion-view title="OnTouch"  cache-view="false">
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" ng-click="openMenu()"></button>
+  </ion-nav-buttons>  
+
+        
+  <ion-content overflow-scroll="false">
+    <div class="button-bar" style="border-bottom: 2px solid #e0e0e0">
+      <a class="button icon-left button-stable" id="join" href="#/tab/chats" ng-click="carload()" ><i class="icon ion-model-s calm" style="font-size:25px;"></i> Car</a>
+      <a class="button icon-left button-stable" id="join" href="#/tab/bike" ng-click="bikeload()" ><i class="icon ion-android-bicycle calm" style="font-size:25px;"></i> Bike</a>
+      <a class="button icon-left button-stable" id="join" href="#/tab/gas" ng-click="otherload()" ><i class="icon ion-information-circled calm" style="font-size:25px;"></i> Other</a>
+      <!--<a class="button icon-left ion-person-add button-stable" id="create" href="#/tab/wheelars">Two Wheelar Service</a>-->
+    </div>
+  
+  
+       <!-- <div class="item item-icon-left" ion-datetime-picker ng-model="datetimeValue">
+                <i class="icon ion-ios-grid-view-outline positive"></i>
+                Basic datetime picker:
+                <strong>{{datetimeValue| date: "yyyy-MM-dd H:mm"}}</strong>
+            </div>
+
+
+            <ion-list>
+              <div class="item" ion-datetime-picker ng-model="datetimeValue">
+                {{datetimeValue| date: "yyyy-MM-dd H:mm:ss"}}
+              </div>
+            </ion-list> -->
+
+ <div class="list card" >
+  <div class="item item-divider" ng-click="toggle()">
+      <i class="icon ion-plus calm"></i> <b>Your Appointment</b>
+  </div>
+
+  <div class="item item-button-right item-text-wrap" ng-repeat="custom in appointDisplay | orderBy:'-Name':true"  ng-show="toggleVar" ng-click="purchaseDetaildata(custom)" ng-if="custom.appointment_stage!='READY'" style="border-bottom: 2px solid #e0e0e0; border-top: 4px solid #f0f0f0"> 
+
+ 
+    <!--<b style="text-transform: capitalize;">{{custom.Name}} </b>
+    <span><span style="color:#11c1f3">|</span> {{custom.Contact}}</span>-->
+    <!--  <p>{{custom.cust_id}}</p>
+     <p>{{custom.business_id}}</p>
+    <span>{{custom.cid}}</span> -->
+
+     <!--  <div ng-if="custom.Name === 'Dummy'">
+       <p style="text-align: center;"> No Customer is Registered</p>
+     </div> -->
+    <!--  <div ng-if="custom.Name != 'Dummy'">
+         <b style="text-transform: capitalize;">{{custom.cust_name}} </b>
+    <span><span style="color:#11c1f3">|</span> {{custom.Contact}}</span>
+     </div> -->
+     <div >
+         <b style="text-transform: capitalize;">{{custom.cust_name}} </b>
+         {{custom.service_center_id}}
+    <!-- <span><span style="color:#11c1f3">|</span> {{custom.Contact}}</span> -->
+     </div>
+  
+       <button class="button button-small button-calm list card"  ng-click="sellItemToCustomer(custom);$event.stopPropagation()" ng-disabled="custom.appointment_stage!='RATE US'"><span style="font-size: 12px">{{custom.appointment_stage}}</span> 
+       </button>
+<!-- 
+       <button class="button button-small button-stable list card"><span style="font-size: 12px">{{custom.appointment_stage}}</span> 
+       </button> -->
+    </div>
+  </div>
+
+  <!-- <p ng-repeat="x in recordlist">
+    <span>{{x.Matched}}</span>
+  </p> -->
+  <!-- <progress value="4" max="5" ng-click=""></progress>
+  <progress value="1" max="5"></progress> -->
+  </ion-content>
+</ion-view>
+
+

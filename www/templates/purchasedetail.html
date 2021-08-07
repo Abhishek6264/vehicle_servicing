@@ -1,0 +1,35 @@
+<!-- <ion-view view-title="{{sellItemToCustomer.Name}}" > -->
+<ion-view view-title="{{sellItemToCustomer.cust_name}}" >
+  <ion-content overflow-scroll="false">
+      <!-- <p style="text-align: center;">Purchase details from  <b>{{sellItemToCustomer.Name}}: {{sellItemToCustomer.cust_id}} </b></p> -->
+    
+
+			<div class="list card">
+			  <div class="item item-divider" style="text-align: center;">
+			   <b>{{sellItemToCustomer.cust_name}}</b> 
+			  </div>
+			   
+			  <span class="item" style="text-align: center;">
+			  Date & Time:  <b>{{sellItemToCustomer.appointment_time}}</b>
+			  </span>
+       
+
+        <!-- <div ng-repeat="detail in customerPurchaseData">
+
+			<div class="list card">
+			  <div class="item item-divider" style="text-align: center;">
+			  Purchase details from <b>{{sellItemToCustomer.Name}}</b> 
+			  </div>
+			   
+			  <span class="item" style="text-align: center;">
+			  Total Items : <b>{{detail.TotalItem}}</b>
+			  </span>
+
+			  <span class="item" style="text-align: center;">			 
+			   Total Cost : <b>{{detail.TotalCost}}</b>
+			  </span>
+			</div>
+        </div> -->
+
+  </ion-content>
+</ion-view>

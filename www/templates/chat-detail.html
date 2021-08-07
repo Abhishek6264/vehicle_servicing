@@ -1,0 +1,162 @@
+<ion-view view-title="{{customerDetailData.Name}}" cache-view="false">
+  <ion-content overflow-scroll="false" no-bounce>
+  <!-- <p>{{customerDetailData.Contact}}</p> -->
+  <!--  <div class="list card" >
+      <span class="item item-divider" style="text-align: center; font-size: 18px">Book an Appointment for Service</span> -->
+      
+              <div class="list card" style="margin-top: 10px">
+              <div class="item item-divider">Toatal Appointments for Next 2 Days</div>
+                <!-- <span class="input-label">Loacation:  </span> -->
+                  <!-- <span>Date 1: {{currentDate|  Date:'yyyy-MM_dd'}}</pan> -->
+        
+          <div class="button-bar" >
+     
+          <span class="button button-calm" style="padding-left:2px" ng-click="setdate(1)">{{dty1}} :<b style="color: darkred">{{xyz}}</b> </span>
+          <span class="button button-calm" style="padding-left:5px" ng-click="setdate(2)"> {{dty2}} : <b style="color: darkred">{{pqr}}</b> </span>
+    </div>
+</div>
+
+
+
+                <!--   <span class="item item-input item-stacked-label" style="margin-left: 0;padding-top:0;padding-bottom: 0;height: 40px">
+                  <span  class="button button-small button-calm" ng-click="setdate(1)" style="font-size: 15px;margin-left: -20px;height: 100%">{{dty1}}</span>
+                  <span style="color: darkred;font-weight: bold;font-size: 18px;margin-top: 10px"> {{xyz}}</span>  &nbsp; <b style="color: #11c1f3;">|</b> &nbsp;   &nbsp;
+
+                 <span class="button button-small button-calm" style="font-size: 15px;margin-left: -5px;height: 100%" ng-click="setdate(2)">{{dty2}}</span>
+                 <span style="color: darkred;font-weight: bold;font-size: 18px"> {{pqr}}</span>
+                 </span> -->
+
+   
+
+ 
+  <!-- Total Slot Today: {{xyz}}
+  Tomorrow Slot : {{pqr}}
+ -->
+  <form ng-submit="submitc()" name="customerForm">
+    <div class="list card" style="margin-top: -18px" >
+   
+      <span class="item item-divider" style="text-align: center; font-size: 15px">Book an Appointment for Service</span>
+  
+           <!-- <label class="item item-input item-stacked-label">
+                <span class="input-label">Name: </span>
+                <input type="text" name="cusername" placeholder="Customer name" id="cusername" ng-model="data.cusername" required="">
+            </label>   
+
+
+            <label class="item item-input item-stacked-label">
+              <span class="input-label">Loacation:  </span>
+              <input type="text"  name="clocation" placeholder="Customer Loacation" id="clocation" ng-model="data.clocation" required="">
+            </label> -->
+           
+            
+            <!--<label class="item item-input item-stacked-label">-->
+              <!--<span class="input-label">Contact:  </span>-->
+              <!--<input type="text"  name="ccontact" placeholder="Customer Contact" id="ccontact" ng-model="data.ccontact" required="" style="text-align: center">
+            </label>-->
+          <label class="item item-input item-stacked-label">
+              <!--<span class="input-label">Type:  </span>--> 
+             
+               <input type="text"  name="num"  id="num"  ng-model="data.num" ng-value="{{cmobno}}" required="" style="text-align: center">
+          </label>
+
+        <!--   <label class="item item-input item-stacked-label" style="padding-left: -8px;padding-top: 0;padding-bottom: 0">
+              <span class="input-label" style="margin-left: -8px;margin-top: -10px">Vehicle No:  </span>  -->
+              <!-- <input name="ctype" placeholder="AZ 09 AZ 1234" id="ctype" ng-model="data.ctype" title="Enter in AZ 09 AZ 1234 format" pattern="[A-Za-z]{2} [0-9]{2} [A-Za-z]{2} [0-9]{4}" style="text-transform: uppercase;margin-left: -5px" required=""> -->
+  <div class="row"><span style="margin-top: 10px;text-transform: uppercase;">Vehicle No:</span> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" maxlength="2" id="input1" focus-after elem-to-focus="input2" ng-model="data.c1" style="width: 10%"  placeholder="AZ" required="">&nbsp;
+    <input type="text" maxlength="2" id="input2" focus-after elem-to-focus="input3" ng-model="data.c2" style="width: 10%"  placeholder="09" required="">&nbsp;
+    <input type="text" maxlength="2" id="input3" focus-after elem-to-focus="input4" ng-model="data.c3" style="width: 10%" " placeholder="AZ" required="">&nbsp;
+    <input type="text" maxlength="4" id="input4" ng-model="data.c4" style="width: 15%"  placeholder="1234" required="">
+  </div>
+  <!-- <input type="text" maxlength="3" id="input1" focus-after elem-to-focus="input2" >
+    <input type="text" maxlength="3" id="input2" focus-after elem-to-focus="input3" >
+    <input type="text" maxlength="3" id="input3" focus-after elem-to-focus="input4" >
+    <input type="text" maxlength="3" id="input4"  style="background-color: yellow"> -->
+              
+          <!-- </label> -->
+          <!-- min="2017-09-01T07:00:00" max="2017-12-31T16:00:00"  -->
+         <!--  <div class="row">
+                  
+                  <div class="col col"> -->
+                    <label class="item item-input item-stacked-label">
+                         <span class="input-label" style="margin-left: -8px">Date:  </span> 
+                        <input type="text"  name="bdate"  id="bdate" ng-model="newdate"  required=""  placeholder="Select a date from above"   style="margin-top: -30px; margin-left: 100px">
+                    </label>
+                
+                 
+                <!--  <label class="item item-input item-stacked-label">
+                     <span class="input-label" style="margin-left: -8px">Time:  </span> 
+                      <input type="time"  min="06:00:00" max="16:00:00" step="300" name="btime"  id="btime" ng-model="data.btime" required="" style="text-align: center;margin-top: -30px;margin-left: 10px" placeholder="Time">
+                  </label> -->
+                
+                  
+                     <label class="item item-input item-stacked-label" >
+                       <span class="input-label" style="margin-left: -8px">Time:  </span> 
+                     
+                        <!-- <select name="hour" ng-options="time.hour for time in Hours" ng-model="userselected"   style="border: none;">
+                          <option value="">Select Hours</option> class="ion-input-select"-->
+          <span style="margin-left: -12px">
+            <select  ng-options="category.hour for category in Hours" ng-model="selectedcategory" ng-change="callFunction(selectedcategory)" style="border: none;background-color: white">
+                <option value="">Hours</option>
+            </select>
+             <select  ng-options="category.minute for category in Minutes" ng-model="selected" ng-change="callFunct(selected)" style="border:none;background-color: white">
+                <option value="">Minutes</option>
+            </select>AM
+          </span>
+          </label>
+
+<!-- <select ng-model="customer.Country"                
+    ng-options="obj.id as obj.hour for obj in Hours"
+    
+    class="form-control" 
+    ng-required="true"
+    id="country">
+    <option value=""> Choose Country</option>
+</select> -->
+
+          <!--   <select class="ion-input-select" ng-options="category.hour for category in Hours" ng-model="selectedcategory">
+                <option value="">Select Hours</option>
+            </select>
+            <select class="ion-input-select" ng-options="category.minute for category in Minutes" ng-model="selected">
+                <option value="">Select Minutes</option>
+            </select> -->
+
+
+                       
+
+                         <!-- <select name="hour" ng-options="user.minute for user in Minutes" ng-model="userselect"   style="border: none;">
+                          <option value="">Select Minutes</option>
+                          <br>
+                           {{userselected.hour}}    
+                        </span> -->
+                       
+                   
+                             
+              
+  
+
+             
+           
+            <!-- <a class="button button-block button-calm" type="submit" name="submit" value="" href="#/tab/dash">Join this Business</a> -->
+            <!--  <div class="item item-icon-left" ion-datetime-picker ng-model="datetimeValue">
+                <i class="icon ion-ios-grid-view-outline positive"></i>
+                Basic datetime picker:
+                <strong>{{datetimeValue| date: "yyyy-MM-dd H:mm"}}</strong>
+                <<input type="text" name="userId" value="{{datetimeValue| date: 'yyyy-MM-dd H:mm'}}\" ng-model="datetimeValue"/>-->
+                <!--  <input type="hidden" name="dtte"  ng-value="datetimeValue"/>
+            </div>
+
+
+<ion-list>
+  <div class="item" ion-datetime-picker ng-model="datetimeValue">
+    {{datetimeValue| date: "yyyy-MM-dd H:mm:ss"}}
+  </div>
+</ion-list> -->  
+   </div> 
+            <input class="button button-block button-calm" type="submit" id="custsubmit"  name="submit" value="Book An Appointment"  style="width: 94%;margin-left: 10px" >
+      </form>
+ 
+   <!--  {{dty}}
+    {{custDate.cdate}} -->
+  </ion-content>
+</ion-view>

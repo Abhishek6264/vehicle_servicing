@@ -1,0 +1,59 @@
+<ion-view view-title="Ratting">
+  <!-- <ion-nav-title>{{sellItemToCustomer.Name}}</ion-nav-title> -->
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" ng-click="openMenu()"></button>
+  </ion-nav-buttons> 
+
+  <ion-content class="padding"> 
+
+  <form ng-submit="ratingComment()">
+      <div class="card"  ng-init="rating = star.rating + 1" style="text-align: center;line-height: 1; font-size: 30px;">
+      <div class="star-rating" star-rating rating-value="rating" data-max="5" on-rating-selected="rateFunction(rating)"></div></div>
+
+      <div class="card" >
+       <textarea name="comment" ng-model="data.comment" placeholder="Your Comment About The Service..." rows="3" cols="45" style="margin-left: 10px;padding-top: 10px"></textarea>
+      </div>
+
+     <input class="button button-block button-calm" type="submit" name="submit" value="Submit Your Comment">
+  </form>
+
+  
+    <!-- <h>{{sellItemToCustomer.Name}}</h>
+    <p >{{sellItemToCustomer.cust_id}}</p>
+     <p >{{sellItemToCustomer.business_id}}</p> -->
+      <!-- div class="list card" >
+          <div class="item item-divider">
+           <p style="text-align: center;font-size:20px">Add Items</p>
+          </div>
+          <form ng-submit="totalCost()">
+           
+              <div class="button-bar" style="border-top: 4px solid #f0f0f0;border-bottom: 3px solid #e0e0e0 ">
+                <a class="button ion-plus" ng-click='addCounter("quantity")' style="color: #11c1f3" ></a>
+                   <input type="number" name="bnos"  ng-model="bnos" ng-value="bnos" min="0" ng-change="checkCartCount('quantity')" placeholder="Number of Items" style="text-align: center;" required="">
+                <a class="button ion-minus" ng-click='subCounter("quantity")'  style="color: #11c1f3"></a>
+              </div>
+
+
+              <div class="button-bar" style="border-bottom: 3px solid #e0e0e0">
+                <a class="button ion-plus" ng-click='addCounter("rate")'  style="color: #11c1f3"></a>
+                   <input type="number" name="brate"  ng-model="brate" ng-change="checkCartCount('rate')" ng-value="brate" min="0" placeholder="Per Unit Price" style="text-align: center;" required="">
+                <a class="button ion-minus" ng-click='subCounter("rate")'  style="color: #11c1f3"></a>
+              </div>
+
+              <div class="row" style="border-bottom: 3px solid #e0e0e0">
+                  <div class="col col">Date: </div>
+                  <div class="col-75">
+                      <input type="date" min="2017-01-01" max="2017-12-31"  name="bdate"  id="bdate" ng-model="bdate" required="" style="text-align: center;">
+                  </div>
+              </div><br/>
+
+              <label>
+                  <span style="font-size: 20px;text-align: center; margin-left: 10px">Total Cost: </span>
+                  <span ng-model="finalCost"><b style="color:#11c1f3;font-size: 20px"> {{total}}</b></span>
+              </label>
+
+            <input class="button button-block button-calm" type="submit" name="submit" value="Add Items"> 
+           </form>
+         </div>  -->
+  </ion-content>
+</ion-view>

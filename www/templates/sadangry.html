@@ -1,0 +1,81 @@
+<ion-view view-title="Users Mood" cache-view="false">
+<ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" ng-click="openMenu()"></button>
+  </ion-nav-buttons>  
+
+  
+        
+  <ion-content>
+
+ <div style="text-align: center;font-size:25px;font-weight: bold;margin-top: 5px">Check Unsatisfied Customers</div><br><br>
+<!--  <span style="margin-left: 23%; font-weight: bolder; font-size: 87px">{{happy | number : 0}}%</span> -->
+
+ <div id="ratingicons" style="text-align: center;line-height: 1; font-size: 75px; text-shadow: 5px 3px 8px black;margin-top: -10px">
+     <i class="ion-happy balanced" ng-click="happyFunction()" style="margin-right: 4px;margin-left: 4px" ></i>
+     
+     <i class="ion-sad energized" ng-click="sadFunction()" style="margin-right: 4px;margin-left: 4px"></i>
+      
+     <i class="ion-sad assertive" ng-click="angryFunction()" style="margin-right: 4px;margin-left: 4px"></i></div>
+
+    <div>
+      
+      <span style="font-weight: bold;  margin-left: 50px;margin-right: 20px">{{happy | number:0}}
+        <!-- <span ng-show="happy==null">0</span>%</span>  -->
+              Happy</span> 
+      <span style="font-weight: bold;  margin-left: 40px;margin-right: 10px">{{sad | number:0}} Sad</span>
+        <!-- <span ng-show="sad==null">0</span>%</span>  -->
+
+      <span style="font-weight: bold;  margin-left: 50px;margin-right: 20px">{{angry | number:0}}Angry</span>
+        <!-- <span ng-show="angry==null">0</span>%</span>  -->
+    
+      
+       <!-- <li style="font-weight: bold; float: right;  list-style-type: none;padding-left: 50px;padding-right: 20px" ng-if="list.rating!=3">0%</li> --> 
+      
+
+      <!-- <li style="font-weight: bold; float: right;  list-style-type: none;padding-left: 100px" ng-if="list.rating==3">{{list.t_counts  | number : 0}}%</li>
+      <li style="font-weight: bold; float: right;  list-style-type: none;padding-left: 150px" ng-if="list.rating==1">{{list.t_counts  | number : 0}}%</li> -->
+      <!-- {{list.date}} -->
+      <!-- {{list.date | date: "dd-MMM-yyyy"}} -->
+    
+     <!-- <div >
+       <div  style="text-align: center;line-height: 1; font-size: 18px;">
+      <div class="star-rating" star-rating rating-value="list.rating" data-max="5" style="padding-left:  1px;padding-right: 1px">
+      </div>
+    </div> 
+      
+       <span style="margin-left: 5px">"{{ list.comments}}"</span>
+      {{list.service_centerid}} -->
+    </div> <br>
+      <div style="margin-bottom: 80px;">
+          <div ng-repeat="sad in sadRating" style="margin-left: 20px;">
+            <span style="border-bottom: 1px solid gray;">
+            <!--<span>{{sad.username}}</span>{{sad.rating}}-->      
+            <b>{{sad.cust_mobno }}</b>   
+            <span style="text-transform: uppercase;"> {{ sad.vehicle_no}}</span>  
+        </span>
+          </div>
+      </div>
+
+  </ion-content>
+  <div class="bar bar-footer" style="margin-bottom: 0px;padding: 0">
+
+
+<div class="button-bar">
+      <!-- <a class="button icon-left button-stable" id="join"  href="#/appointmenstlist" ng-click="carload()" ><i class="icon ion-home calm" style="font-size:25px;margin-left: -45px"></i> <span style="font-size: 16px">Home</span></a>
+      <a class="button icon-left button-stable" id="join"  href="#/appointmenstlist" ng-click="bikeload()" ><i class="icon ion-calendar calm" style="font-size:25px;margin-left: -15px"></i> <span style="font-size: 16px">Appointment List</span></a> -->
+
+
+      <a class="button button-calm" href="#/appointmenstlist" style="border-right: 0px solid #e0e0e0;font-size: 18px;padding-top: 5px;border-radius: 0"><i class="ion-home assertive" style="margin-right: 4px;margin-left:  -60px;font-size: 23px"></i>Home</a>
+      <a class="button button-calm" href="#/appointmenstlist" style="border-left: 0px solid #e0e0e0;font-size: 18px;padding-top: 5px;border-radius: 0"><i class="ion-calendar assertive" style="margin-right: 4px;margin-left: -15px;font-size: 20px"></i>Appointment List</a>
+     
+
+
+
+
+      <!-- <a class="button icon-left button-stable" id="join" href="#/tab/gas" ng-click="otherload()" ><i class="icon ion-information-circled calm" style="font-size:25px;"></i> Other</a> -->
+      <!--<a class="button icon-left ion-person-add button-stable" id="create" href="#/tab/wheelars">Two Wheelar Service</a>-->
+    </div>
+
+    </div>
+
+</ion-view>

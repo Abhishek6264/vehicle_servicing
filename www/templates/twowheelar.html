@@ -1,0 +1,18 @@
+<ion-view view-title="Join now" >
+  <ion-content>
+  <label class="item item-input">
+    <i class="icon ion-search placeholder-icon"></i>
+    <input type="search" placeholder="Search" id="myInput" ng-model="filterName">
+  </label>
+  
+
+      <ion-item ng-click="customerDetail(cname.Contact)" class="item-remove-animate item-avatar item-icon-right" ng-repeat="cname in custmerNames | filter:filterName | orderBy:'-Name':true" type="item-text-wrap" href="#/tab/wheelars/{{ChatId}}" style="border-bottom: 3px solid #a0a0a0; border-top: 2px solid #d0d0d0">
+      
+            <h2 style="text-transform: capitalize;">{{cname.Name}}</h2>
+            <p>{{cname.Details}} </p>
+
+            <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+  
+  </ion-content>
+</ion-view>

@@ -1,0 +1,26 @@
+<ion-view>
+  <!--<ion-nav-title>{{sellItemToCustomer.Name}}</ion-nav-title>-->
+  <ion-content ng-controller="ItemCtrl"> 
+    <ion-nav-buttons side="left">
+   <button class="button button-icon button-clear ion-navicon" ng-click="openMenu()"></button>
+ </ion-nav-buttons> 
+ <ion-content class="padding"> 
+
+ <!-- <div ng-init="rating = star.rating + 1"></div>
+
+<div class="star-rating" star-rating rating-value="rating" data-max="10" on-rating-selected="rateFunction(rating)"></div> -->
+
+
+
+ <form ng-submit="ratingComment()">
+     <div class="card"  ng-init="rating = star.rating + 1" style="text-align: center;line-height: 1; font-size: 30px;">
+     <div class="star-rating" star-rating rating-value="rating" data-max="5" on-rating-selected="rateFunction(rating)"></div></div>
+
+     <div class="card" >
+      <textarea name="comment" ng-model="data.comment" placeholder="Your Comment About The Service..." rows="3" cols="45" style="margin-left: 10px;padding-top: 10px"></textarea>
+     </div>
+
+    <input class="button button-block button-calm" type="submit" name="submit" value="Submit Your Comment">
+ </form>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,90 @@
+<ion-view title="OnTouch">
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" ng-click="openMenu()"></button>
+  </ion-nav-buttons>        
+  <ion-content>
+    <div class="button-bar" style="border-bottom: 2px solid #e0e0e0">
+    <a class="button icon-left ion-ios-people button-stable" id="join" href="#/tab/chats">Add Customer</a>
+    <a class="button icon-left ion-person-add button-stable" id="create" href="#/tab/account" >Add Business Name</a>
+ </div>
+
+ <div class="list card" >
+  <div class="item item-divider" ng-click="toggle()">
+      <i class="icon ion-plus calm"></i> <b>Customers </b>
+  </div>
+
+  <div class="item item-button-right item-text-wrap" ng-repeat="custom in customerDisplay | orderBy:'-cust_id':true"  ng-show="toggleVar" ng-click="purchaseDetaildata(custom)" style="border-bottom: 2px solid #e0e0e0; border-top: 4px solid #f0f0f0"> 
+
+ 
+    <!--<b style="text-transform: capitalize;">{{custom.Name}} </b>
+    <span><span style="color:#11c1f3">|</span> {{custom.Contact}}</span>-->
+    <!--  <p>{{custom.cust_id}}</p>
+     <p>{{custom.business_id}}</p>
+    <span>{{custom.cid}}</span> -->
+
+
+
+
+
+      <div ng-if="custom.Name === 'Dummy'">
+       <p> No Customer is Registered</p>
+     </div>
+     <div ng-if="custom.Name != 'Dummy'">
+         <b style="text-transform: capitalize;">{{custom.Name}} </b>
+    <span><span style="color:#11c1f3">|</span> {{custom.Contact}}</span>
+     </div>
+
+
+
+
+
+
+
+
+
+  
+   
+  
+   <button class="button button-small button-calm list card"  ng-click="sellItemToCustomer(custom);$event.stopPropagation()"><span style="font-size: 12px">Add Items</span> 
+    </button>
+  <!--  <p ng-if="record.customerDisplay">you have no customer yet</p> --> 
+    </div>
+
+  </div>
+  
+  </ion-content>
+</ion-view>
+
+
+<!-- <ion-view view-title="OnTouch">
+
+  
+
+  <ion-content >
+
+  <div class="button-bar" style="border-bottom: 2px solid #e0e0e0">
+    <a class="button icon-left ion-ios-people button-stable" id="join" href="#/tab/chats">Add Customer</a>
+    <a class="button icon-left ion-person-add button-stable" id="create" href="#/tab/account" >Create</a>
+ </div>
+
+ <div class="list card" >
+  <div class="item item-divider" ng-click="toggle()">
+      <i class="icon ion-plus calm"></i> <b>Customers </b>
+  </div>
+
+  <div class="item item-button-right item-text-wrap" ng-repeat="custom in customerDisplay | orderBy:'-cust_id':true" ng-show="toggleVar" ng-click="purchaseDetaildata(custom)" style="border-bottom: 2px solid #e0e0e0; border-top: 4px solid #f0f0f0"> 
+ 
+    <b style="text-transform: capitalize;">{{custom.Name}} </b>
+    <span><span style="color:#11c1f3">|</span> {{custom.Contact}}</span>
+    <p>{{custom.cust_id}}</p>
+    <!- <p>{{custom.business_id}}</p> -->
+  
+  <!-- <b>{{custom.TotolItem}}</b>
+    <button class="button button-small button-calm list card"  ng-click="sellItemToCustomer(custom);$event.stopPropagation()"><span style="font-size: 12px">Add Items</span>
+    
+    </button>
+    </div>
+  </div>
+
+  </ion-content>
+</ion-view>  -->

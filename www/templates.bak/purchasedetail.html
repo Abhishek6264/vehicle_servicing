@@ -1,0 +1,28 @@
+<ion-view view-title="{{sellItemToCustomer.Name}}" >
+  <ion-content >
+      <p style="text-align: center;">Purchase details from  <b>{{sellItemToCustomer.Name}} </b></p>
+
+       <div ng-repeat="detail in customerPurchaseData">
+
+<div class="list">
+
+  <div class="item item-divider">
+    Total Items : <b>{{detail.TotalItem}}</b>
+  </div>
+
+  <a class="item" href="#">
+   Total Cost : <b>{{detail.TotalCost}}</b>
+  </a>
+
+</div>
+
+<!-- 
+       	<span>{{detail.cid}}</span>
+       	<span>{{detail.bid}}</span><br>
+       	<b>{{detail.TotalItem}}</b><br>
+       	<b>{{detail.TotalCost}}</b>
+       </div>
+ -->
+
+  </ion-content>
+</ion-view>

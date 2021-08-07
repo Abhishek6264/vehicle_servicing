@@ -1,0 +1,55 @@
+<ion-view view-title="Add Business" >
+  <ion-content>
+<!-- <div>
+<button class = "button" ng-click = "takePicture()">Take Picture</button>
+<button class = "button" ng-click = "getPicture()">Open Gallery</button>
+<img ng-src = "{{user.picture}}">
+</div> -->
+    
+
+
+ <div class="list card" >
+ <span class="item item-divider" style="text-align: center;">Create New Business</span>
+ <form ng-submit="businessSubmit()"  name="bForm">
+ <!-- Business Name -->
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Name:* </span>
+    <input type="text" name="username" placeholder="Business name" id="bname" ng-model="data.username" required>
+    <span style="color:red" ng-show="bForm.username.$dirty && bForm.username.$invalid">
+<span ng-show="bForm.username.$error.required">Username is required.</span>
+</span>
+  </label>
+  <!-- Business Contact No -->
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Contact No.:* </span>
+    <input type="text" name="contact" placeholder="Contact Number" id="contact" ng-model="data.contact" pattern="[0-9]{10}">
+
+  <!-- pattern="[7-9]{1}[0-9]{9}" -->
+    <span style="color:red" ng-show="bForm.contact.$dirty && bForm.contact.$invalid">
+<span ng-show="bForm.contact.$error.required">Contact number is required</span>
+</span>
+  </label>
+  <!-- Business Detail -->
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Business Details:* </span>
+    <input type="text"  name="details" placeholder="Business details" id="bdetail" ng-model="data.details" required>
+    <span style="color:red" ng-show="bForm.details.$dirty && bForm.details.$invalid">
+<span ng-show="bForm.details.$error.required">Busniess Details is required.</span>
+</span>
+  </label>
+  
+  
+  <input class="button button-block button-calm" type="submit" name="submit" value="Add Business" ng-disabled="bForm.username.$dirty && byForm.username.$invalid ||  
+bForm.contact.$dirty && bForm.contact.$invalid || bForm.details.$dirty && bForm.details.$invalid">
+  
+</form>
+</div> 
+
+ <!-- <div class="card">
+    <div class="item item-text-wrap">
+        Response: <b ng-bind="response"></b>
+    </div>
+</div>  -->
+<!-- <label id="welcomeMessage" style="color: green"></label> -->
+  </ion-content>
+  </ion-view>

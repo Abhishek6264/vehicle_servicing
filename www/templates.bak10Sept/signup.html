@@ -1,0 +1,72 @@
+<ion-view view-title="Welcome To OnTouch">
+    <ion-content class="padding" ng-controller="loginController" >
+      <h1 style="text-align: center; font-size: 60px; margin-top: 20%; color: #11c1f3; text-shadow:4px 3px 10px gray ">OnTouch</h1>
+
+          <div class="list" style="margin-top: 5%;  border-radius: 15px; box-shadow: 8px 8px 15px -1px black;text-align: center;">
+                <form ng-submit="login()">
+                
+                  <label class="item item-input item-stacked-label" style="border:none;padding-right: 2px">
+                    <!-- <span class="input-label">Name: </span> -->
+                    <input type="text" name="logname" placeholder="User Name" id="logname" ng-model="data.logname" required="" style="">
+                  </label>
+                  
+		              <label class="item item-input item-stacked-label" style="border-top:1px solid #11c1f3;border-left: none;border-right: none;border-bottom: none; padding-right: 2px;">
+                    <!-- <span class="input-label">Current City: </span> -->
+                    <!-- <input type="text" name="city" placeholder="Current City" id="city" ng-model="data.city" required="" style="text-align: center;"> -->
+
+                  <div class="list" >
+
+                      <label class="item item-input item-select" style="border: none;">
+                          <div class="input-label" style="color: #bdbdbd;margin-left: -45px">
+                          City
+                          </div>
+                        <select name="vehicle"ng-options="user.city for user in Cities | orderBy:'city'" ng-model="userselected" style="border: none;" required="">
+                          <option value="">Select City</option>
+                        </select>
+                      </label>
+                  </div>
+                       <!--  <select  name="city" ng-options="user.city for user in Cities | orderBy:'city'" ng-model="userselected" style="border: none;" required="">
+                          <option value="">Select City</option>
+                        </select> -->
+                  
+                    <!-- <span>User Name: {{userselected.city}}, UserId: {{userselected.id}}</span> -->
+                  </label>
+
+                  <label class="item item-input item-stacked-label" style="border-top:1px solid #11c1f3;border-left: none;border-right: none;border-bottom: 1px solid #11c1f3; padding-right: 2px">
+                   <!--  <span class="input-label">Contact Number:  </span> -->
+                    <input type="text"  name="logcontact" placeholder="User Contact Number"  id="logcontact" ng-model="data.logcontact" required="" style="">
+                  </label>
+
+                  <label class="item item-input item-stacked-label" style="border-top:1px solid #11c1f3;border-left: none;border-right: none;border-bottom: 1px solid #11c1f3; padding-right: 2px;display: none;">
+                    <!-- <span class="input-label">Contact Number:  </span> -->
+                    <input type="text"  name="did" placeholder="device Id"  id="did" ng-model="did" ng-value="did=uuid" style="text-align: center;">
+                  </label>
+ <!-- <p >{{uuid}}</p> -->
+
+                  <input class="button button-block button-stable item-stacked-label" type="submit" name="signup" value="Signup"  style="border-top:none;border-bottom:1px solid #11c1f3;margin-top: 0px">
+                
+                </form>   
+          </div><br>
+
+     <!-- <div style="text-align: center;">
+
+        <button class="button button-positive" ng-click = "loginFacebook()"><i class="ion-social-facebook" style="font-size:20px"></i>&nbsp;&nbsp;
+         Facebook
+        </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <button class="button button-assertive"><i class="ion-social-googleplus" style="font-size:20px"></i>&nbsp;&nbsp;
+          Google+
+        </button>
+     </div>
+
+     <button class = "button" ng-click = "logoutFacebook()">LOG OUT</button>
+     <button class = "button" ng-click = "checkLoginStatus()">CHECK</button>
+     <button class = "button" ng-click = "facebookAPI()">API</button> -->
+
+          <!--  <p >{{uuid}}</p> -->
+
+      </ion-content>
+      <div class="bar bar-footer bar-calm" >
+        <div class="title"><h6>Copy Right&copy; OnTouch 2017 | All Rights Reserved&reg;</h6></div>
+      </div>
+</ion-view>

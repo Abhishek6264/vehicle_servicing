@@ -1,0 +1,23 @@
+<ion-view view-title="Welcome to OnTouch">
+    <ion-content class="padding" ng-controller="loginController" >
+      <h1 style="text-align: center; font-size: 60px; margin-top: 20%; color: #11c1f3; text-shadow:4px 3px 8px black ">OnTouch</h1>
+          <div class="list" style="margin-top: 5%;  border-radius: 15px; box-shadow: 8px 8px 15px -1px black;text-align: center;">
+                <form ng-submit="login()">
+                  <label class="item item-input item-stacked-label" style="border:none;padding-right: 2px">
+                    <!-- <span class="input-label">Name: </span> -->
+                    <input type="text" name="logname" placeholder="User Name" id="logname" ng-model="data.logname" required="" style="text-align: center;">
+                  </label>
+
+                <label class="item item-input item-stacked-label" style="border-top:1px solid #11c1f3;border-left: none;border-right: none;border-bottom: none; padding-right: 2px">
+                   <!--  <span class="input-label">Contact Number:  </span> -->
+                    <input type="text"  name="logcontact" placeholder="User Contact Number"  id="logcontact" ng-model="data.logcontact" required="" style="text-align: center;">
+                  </label>
+
+                  <input class="button button-block button-stable" type="submit" name="signup" value="Signup" style="border-top:1px solid #11c1f3;border-bottom:1px solid #11c1f3"">
+                </form>   
+          </div>
+      </ion-content>
+  <div class="bar bar-footer bar-calm" >
+  <div class="title"><h6>Copy Right&copy; OnTouch 2017 | All Rights Reserved&reg;</h6></div>
+</div>
+</ion-view>

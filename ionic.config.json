@@ -1,0 +1,8 @@
+{
+  "name": "OnTouch",
+  "integrations": {},
+  "type": "ionic1",
+  "watchPatterns": [
+    "scss/**/*"
+  ]
+}

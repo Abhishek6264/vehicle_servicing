@@ -1,0 +1,79 @@
+<ion-view view-title="{{customerDetailData.Name}}" >
+  <ion-content class="padding">
+  <!-- <p>{{customerDetailData.Contact}}</p> -->
+   <!-- <div class="list card" >
+      <span class="item item-divider" style="text-align: center; font-size: 18px">Book an Appointment for Service</span> -->
+
+
+      <form ng-submit="submitc()" name="customerForm">
+        <div class="list card" >
+          <span class="item item-divider" style="text-align: center; font-size: 18px">Items</span>
+  
+           <!-- <label class="item item-input item-stacked-label">
+                <span class="input-label">Name: </span>
+                <input type="text" name="cusername" placeholder="Customer name" id="cusername" ng-model="data.cusername" required="">
+            </label>-->
+ 
+            <!--<label class="item item-input item-stacked-label">
+              <span class="input-label">Loacation:  </span>
+              <input type="text"  name="clocation" placeholder="Customer Loacation" id="clocation" ng-model="data.clocation" required="">
+            </label> -->
+
+
+
+
+     <form name="addMedicine">
+    <span class="item item-input item-stacked-label">     
+       <input ng-model="addToDoValue" required="" placeholder="Add Medicines Name" style="width: 75%; margin-top: -10px;""><button class="button button-small button-calm list card" ng-disabled="addMedicine.$invalid" ng-click="add(addToDoValue)" style="width: 20%">Add</button>
+       </form>
+       
+        <ul >
+            <li ng-repeat="t in items track by $index" style="padding-bottom: 2px;text-transform: uppercase;" ng-model="medicine">{{ t }} <button ng-click="delete()" style="border: none;">x</button></li>
+        </ul>
+    </span> 
+
+
+
+           <!--  <label class="item item-input item-stacked-label">
+              <span class="input-label">Item  </span>
+              <input type="text"  name="ccontact" placeholder="Customer Contact" id="ccontact" ng-model="data.ccontact" required="" style="text-align: center">
+            </label> -->
+          <label class="item item-input item-stacked-label">
+              <!--<span class="input-label">Type:  </span>--> 
+               <input type="text"  name="num"  id="num" ng-model="data.num" ng-value="{{cmobno}}" required="" style="text-align: center">
+          </label>
+
+          <label class="item item-input item-stacked-label">
+              <!--<span class="input-label">Type:  </span>--> 
+              <input type="text"  name="ctype" placeholder="Medicine Center Name" id="ctype" ng-model="data.ctype" required="" style="text-align: center">    
+          </label>
+
+          <label>
+          <div class="row" style="border-bottom: 3px solid #e0e0e0">
+                  <div class="col col">Date: </div>
+                  <div class="col-75">
+                      <input type="datetime-local" min="2017-01-01" max="2020-12-31"  name="bdate"  id="bdate" ng-model="data.bdate" required="" style="text-align: center;">
+                  </div>
+              </div>
+              </label>
+            <!-- <a class="button button-block button-calm" type="submit" name="submit" value="" href="#/tab/dash">Join this Business</a> -->
+            <!--  <div class="item item-icon-left" ion-datetime-picker ng-model="datetimeValue">
+                <i class="icon ion-ios-grid-view-outline positive"></i>
+                Basic datetime picker:
+                <strong>{{datetimeValue| date: "yyyy-MM-dd H:mm"}}</strong>
+                <<input type="text" name="userId" value="{{datetimeValue| date: 'yyyy-MM-dd H:mm'}}\" ng-model="datetimeValue"/>-->
+                <!--  <input type="hidden" name="dtte"  ng-value="datetimeValue"/>
+            </div>
+
+
+<ion-list>
+  <div class="item" ion-datetime-picker ng-model="datetimeValue">
+    {{datetimeValue| date: "yyyy-MM-dd H:mm:ss"}}
+  </div>
+</ion-list> --> </div> 
+            <input class="button button-block button-calm" type="submit" name="submit" value="Book An Appointment">
+      </form>
+   
+    
+  </ion-content>
+</ion-view>

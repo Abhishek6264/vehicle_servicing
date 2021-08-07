@@ -1,0 +1,37 @@
+<ion-view view-title="{{customerDetailData.Name}}" >
+  <ion-content>
+  <!--<p>{{customerDetailData.Contact}}</p>-->
+  <div class="list card" >
+    <span class="item item-divider" style="text-align: center; font-size: 18px">Customer Details</span>
+    <form ng-submit="submitc()" name="customerForm">
+
+  
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Name: </span>
+                <input type="text" name="cusername" placeholder="Customer name" id="cusername" ng-model="data.cusername" required="">
+            </label>
+
+
+            <label class="item item-input item-stacked-label">
+              <span class="input-label">Contact:  </span>
+              <input type="text"  name="ccontact" placeholder="Customer Contact" id="ccontact" ng-model="data.ccontact" required="">
+            </label>
+
+
+            <label class="item item-input item-stacked-label">
+              <span class="input-label">Loacation:  </span>
+              <input type="text"  name="clocation" placeholder="Customer Loacation" id="clocation" ng-model="data.clocation" required="">
+            </label>
+
+          <label class="item item-input item-stacked-label">
+              <span class="input-label">Type:  </span>
+              <input type="text"  name="ctype" placeholder="Customer type" id="ctype" ng-model="data.ctype" required="">
+          </label>
+            <!-- <a class="button button-block button-calm" type="submit" name="submit" value="" href="#/tab/dash">Join this Business</a> -->
+            <input class="button button-block button-calm" type="submit" name="submit" value="Join My Business">
+
+  </form>
+</div> 
+    
+  </ion-content>
+</ion-view>
